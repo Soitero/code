@@ -9,7 +9,12 @@ int enqueue(list *pos)
 	return add(pos);
 }
 
-list* dequeue(int j)
+list* dequeue()
 {
-	return output(j);
+	return output();
+}
+
+list* see_all(int j)
+{
+	return item_at_pos(j);
 }

@@ -6,4 +6,5 @@ struct list
 };
 int size();
 int add(list *new_item);
-list* output(int j);
+list* output();
+list* item_at_pos(int j);

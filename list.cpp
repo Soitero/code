@@ -4,14 +4,16 @@ int add(list *new_item)
 {
 	if(first!=NULL)
 	{
-		new_item->next = NULL;
-		last->next = new_item;
-		last=new_item;
+		pos = new_item;
+		last->next = pos;
+		pos->next=NULL;
+		last=pos;
 	}
 	else
 	{
-		new_item->next=NULL;
-		last=new_item;
+		first = new_item;
+		first->next=NULL;
+		last=first;
 	}
 	return 0;
 }
@@ -28,11 +30,22 @@ int size()
 	return i;
 }
 
-list* output(int j)
+list* output()
 {
-	int i=0;
+	if(first!=NULL)
+	{
+	pos = first;
+	first=first->next;
+	return pos;
+	}
+	else return NULL;
+}
+
+list* item_at_pos(int j)
+{
+	int i=1;
 	pos=first;
-	while(j!=i)
+	while(i<j)
 	{
 		pos=pos->next;
 		i++;
