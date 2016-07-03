@@ -1,4 +1,10 @@
+#include <iostream>
 #include "list.h"
-void enqueue();
-void dequeue();
-void deqAll();
+class Queue
+{
+public:
+	int size_of_list();
+	int enqueue(list* pos);
+	list* dequeue();
+	list* see_all(int j);
+};

@@ -1,32 +1,55 @@
 #include "list.h"
-void addlist()
+list *pos,*first,*last;
+
+int List::add(list *new_item)
 {
-	pos = new list;
+	if(first!=NULL)
+	{
+		pos = new_item;
+		last->next = pos;
+		pos->next=NULL;
+		last=pos;
+	}
+	else
+	{
+		first = new_item;
+		first->next=NULL;
+		last=first;
+	}
+	return 0;
+}
+
+int List::size()
+{
+	int i=0;
 	pos = first;
 	while(pos!=NULL)
 	{
-		last = pos;
-		pos = pos->next;
+		pos=pos->next;
+		i++;
 	}
-	cout << "¬ведите им€ животного(кличку)\n";
-	cin >> pos->name;
-	cout << "¬ведите вид животного\n";
-	cin >> pos->spec;
-	cout << "¬ведите возраст животного\n";
-	cin >> pos->age;
-	last->next = pos;
-	pos->next=NULL;
-	last = pos;
+	return i;
 }
-void firstlist()
+
+list* List::output()
 {
-	first = new list;
-	cout << "¬ведите им€ животного(кличку)\n";
-	cin >> first->name;
-	cout << "¬ведите вид животного\n";
-	cin >> first->spec;
-	cout << "¬ведите возраст животного";
-	cin >> first->age;	
-	first->next=NULL;
-	last = first;
+	if(first!=NULL)
+	{
+	pos = first;
+	first=first->next;
+	return pos;
+	}
+	else return NULL;
+}
+
+list* List::item_at_pos(int j)
+{
+	int i=1;
+	pos=first;
+	while(i<j)
+	{
+		pos=pos->next;
+		i++;
+	}
+	return pos;
 }

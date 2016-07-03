@@ -1,48 +1,21 @@
 #include "queue.h"
-void enqueue()
+List l;
+int Queue::size_of_list()			//Возвращает количество элементов в списке 
 {
-	if (first = NULL)
-	{
-		firstlist();
-		first->i++;
-	}
-	else
-	{
-		addlist();
-		pos->i++;
-	}
+	return l.size();
 }
 
-void dequeue()
+int Queue::enqueue(list *pos)
 {
-	int j = 0;
-	cout << "Введите номер элемента для вывода на экран\n\t";
-	cin >> j;
-	pos = first;
-	while(pos->i!=j)
-	{
-		pos=pos->next;
-	}
-	cout << "Ваш элемент:\n" << pos->name << "\n" << pos->spec << "\n" << pos->age << "\n";
-	system("pause");
+	return l.add(pos);
 }
-void deqAll()
+
+list* Queue::dequeue()
 {
-	cout <<		"+-----------------------------------+";
-	pos = first;
-	while(pos!=NULL)
-	{
-		pos=pos->next;
-		cout << "|Имя животного|Вид животного|Возраст|";
-		cin.width(13);
-		cin >> pos->name;
-		cout << "|";
-		cin.width(13);
-		cin >> pos->spec;
-		cout << "|";
-		cin.width(7);
-		cin >> pos->age;
-		cout << "|";
-	}
-	cout <<		"+-----------------------------------+";
+	return l.output();
+}
+
+list* Queue::see_all(int j)
+{
+	return l.item_at_pos(j);
 }
