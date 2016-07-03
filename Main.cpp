@@ -1,13 +1,16 @@
 #include "queue.h"
+#include <stdlib.h>
 using namespace std;
-
-void main()
+Queue q;
+int main()
 {
+	
 	setlocale(LC_ALL, "RUS");
 	int j=1;
 	list *pos;
 	while(1)
 	{
+		system("cls");
 		int n;
 		cout << "1.Ввод\n2.Вывод одного элемента\n3.Вывод\n4.Выход\n";
 		cin >> n;
@@ -22,7 +25,7 @@ void main()
 			cin >> pos->spec;
 			cout << "Введите возраст животного\n";
 			cin >> pos->age;
-			if(enqueue(pos)) cout << "ERROR!";
+			if(q.enqueue(pos)) cout << "ERROR!";
 			else cout << "element successfully added";
 			bool l;
 			cin >> l;
@@ -35,26 +38,27 @@ void main()
 				cin >> pos->spec;
 				cout << "Введите возраст животного\n";
 				cin >> pos->age;
-				if(enqueue(pos)) cout << "ERROR!";
+				if(q.enqueue(pos)) cout << "ERROR!";
 				else cout << "element successfully added";
 				cin >> l;
 			}; break;
 		case 2:
-			pos = dequeue();
+			pos = q.dequeue();
 			if(pos!=NULL)
 			{
 				cout << pos->name<< endl << pos->spec<< endl << pos->age<< endl;
 				delete pos;
 			}
 			else cout << "Элемент не найден";
-				break;
+				system("pause"); break;
 		case 3: 
-			while(j<=size_of_list())
+			while(j<=q.size_of_list())
 			{
-				pos = see_all(j);
+				pos = q.see_all(j);
 				cout << pos->name << endl << pos->spec << endl << pos->age << endl;
 				j++;
-			}; j=1; break;
+			}; j=1;
+			system("pause"); break;
 		case 4: break;
 		}if(n==4) break;
 	}

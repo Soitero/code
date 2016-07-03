@@ -1,20 +1,21 @@
 #include "queue.h"
-int size_of_list()			//Возвращает количество элементов в списке 
+List l;
+int Queue::size_of_list()			//Возвращает количество элементов в списке 
 {
-	return size();
+	return l.size();
 }
 
-int enqueue(list *pos)
+int Queue::enqueue(list *pos)
 {
-	return add(pos);
+	return l.add(pos);
 }
 
-list* dequeue()
+list* Queue::dequeue()
 {
-	return output();
+	return l.output();
 }
 
-list* see_all(int j)
+list* Queue::see_all(int j)
 {
-	return item_at_pos(j);
+	return l.item_at_pos(j);
 }

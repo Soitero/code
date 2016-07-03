@@ -1,6 +1,7 @@
 #include "list.h"
 list *pos,*first,*last;
-int add(list *new_item)
+
+int List::add(list *new_item)
 {
 	if(first!=NULL)
 	{
@@ -18,7 +19,7 @@ int add(list *new_item)
 	return 0;
 }
 
-int size()
+int List::size()
 {
 	int i=0;
 	pos = first;
@@ -30,7 +31,7 @@ int size()
 	return i;
 }
 
-list* output()
+list* List::output()
 {
 	if(first!=NULL)
 	{
@@ -41,7 +42,7 @@ list* output()
 	else return NULL;
 }
 
-list* item_at_pos(int j)
+list* List::item_at_pos(int j)
 {
 	int i=1;
 	pos=first;
